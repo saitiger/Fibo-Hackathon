@@ -1,0 +1,31 @@
+{
+  "color_palette": [
+    "#1A73E8",
+    "#4A5568",
+    "#FFFFFF",
+    "#A7C5F9",
+    "#CBD5E0",
+    "#0F3D91"
+  ],
+  "lighting_style": "Bright, minimal with strong natural light and soft shadows",
+  "mood": "Modern, trustworthy, innovative, minimal, confident, human-centered, professional, warm but authoritative",
+  "camera": {
+    "angle": "Clean, straightforward compositions",
+    "lens": "Not specified",
+    "fov": "Not specified"
+  },
+  "composition": "Clean compositions with realism and authenticity. Avoid overly stylized filters, heavy saturation, and busy backgrounds. Prioritize clarity and direct visual communication.",
+  "texture_style": "Minimal, clean surfaces. Geometric and line-based aesthetic with rounded edges. Avoid heavy textures or ornamental details.",
+  "brand_keywords": [
+    "modern",
+    "trustworthy",
+    "innovative",
+    "minimal",
+    "confident",
+    "human-centered",
+    "clean",
+    "authentic",
+    "geometric",
+    "professional"
+  ]
+}

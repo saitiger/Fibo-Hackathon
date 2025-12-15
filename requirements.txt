@@ -1,0 +1,7 @@
+pdfminer.six
+pillow
+matplotlib
+python-dotenv
+anthropic
+tiktoken
+numpy
