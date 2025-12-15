@@ -1,0 +1,6 @@
+project_id = "mmnvnhxydnvbjwtcvicu"
+
+[functions.generate-image]
+# Require a valid JWT for all requests to this edge function.
+# This prevents unauthenticated abuse of the image generation API.
+verify_jwt = true

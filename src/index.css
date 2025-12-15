@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Fira+Code:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 45 30% 96%;
+    --foreground: 220 15% 20%;
+
+    --card: 45 25% 98%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 45 25% 98%;
+    --popover-foreground: 220 15% 20%;
+
+    --primary: 220 15% 25%;
+    --primary-foreground: 45 30% 96%;
+
+    --secondary: 45 20% 92%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 45 15% 90%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 200 60% 50%;
+    --accent-foreground: 45 30% 96%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 30% 96%;
+
+    --border: 220 15% 75%;
+    --input: 220 15% 80%;
+    --ring: 220 15% 25%;
+
+    --radius: 0.75rem;
+
+    /* Sketch-specific tokens */
+    --sketch-border: 2px;
+    --sketch-shadow: 3px 3px 0px hsl(220 15% 75%);
+    --sketch-active: 200 70% 45%;
+
+    --sidebar-background: 45 25% 94%;
+    --sidebar-foreground: 220 15% 25%;
+    --sidebar-primary: 220 15% 20%;
+    --sidebar-primary-foreground: 45 30% 96%;
+    --sidebar-accent: 45 20% 88%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 220 15% 75%;
+    --sidebar-ring: 200 60% 50%;
+  }
+
+  .dark {
+    --background: 220 20% 12%;
+    --foreground: 45 20% 90%;
+
+    --card: 220 20% 15%;
+    --card-foreground: 45 20% 90%;
+
+    --popover: 220 20% 15%;
+    --popover-foreground: 45 20% 90%;
+
+    --primary: 45 20% 90%;
+    --primary-foreground: 220 20% 12%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 220 15% 22%;
+    --muted-foreground: 45 15% 60%;
+
+    --accent: 200 60% 50%;
+    --accent-foreground: 220 20% 12%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 45 20% 90%;
+
+    --border: 220 15% 30%;
+    --input: 220 15% 30%;
+    --ring: 45 20% 90%;
+
+    --sketch-shadow: 3px 3px 0px hsl(220 15% 25%);
+    --sketch-active: 200 70% 55%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 200 60% 50%;
+    --sidebar-primary-foreground: 220 20% 12%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 200 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Architects Daughter', cursive;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'Fira Code', monospace;
+  }
+}
+
+@layer components {
+  .sketch-box {
+    @apply border-2 border-foreground rounded-lg;
+    box-shadow: var(--sketch-shadow);
+  }
+
+  .sketch-button {
+    @apply border-2 border-foreground rounded-lg px-4 py-2 font-medium transition-all duration-200;
+    box-shadow: var(--sketch-shadow);
+  }
+
+  .sketch-button:hover {
+    @apply bg-violet-500 text-white border-violet-600;
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px hsl(270 50% 40%);
+  }
+
+  .sketch-button:active {
+    @apply bg-violet-600 text-white;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px hsl(270 50% 35%);
+  }
+
+  .sketch-button-active {
+    @apply bg-violet-600 text-white border-violet-700;
+    box-shadow: 1px 1px 0px hsl(270 50% 35%);
+    transform: translate(2px, 2px);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--sketch-shadow), 0 0 0 0 hsl(270 50% 50% / 0.4); }
+    50% { box-shadow: var(--sketch-shadow), 0 0 20px 5px hsl(270 50% 50% / 0.2); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in-delay {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.2s forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-200;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* History thumbnail */
+  .history-thumb {
+    @apply border-2 border-foreground rounded-lg overflow-hidden transition-all duration-200 cursor-pointer;
+    box-shadow: 2px 2px 0px hsl(var(--border));
+  }
+
+  .history-thumb:hover {
+    @apply border-violet-500;
+    box-shadow: 3px 3px 0px hsl(270 50% 40%);
+    transform: translate(-1px, -1px);
+  }
+}
